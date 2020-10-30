@@ -7,6 +7,7 @@ export default function InterviewerListItem(props){
     "interviewers__item--selected": props.selected
    
   });
+  console.log("props inside interviewer list item:", props);
   return (
     <li className={interviewerClass} onClick={props.setInterviewer}>
       <img
