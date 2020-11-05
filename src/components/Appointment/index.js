@@ -61,18 +61,19 @@ export default function Appointment(props){
  
   return ( 
       <>
+      <article data-testid="appointment">
       <Header time={props.time}/>
       {mode === CREATE && <Form onAdd={() => transition(CREATE)} interviewers={props.interviewers} onCancel={ () => back()} onSave={ save }/>}
       {mode === EDIT && <Form onSave={ save } studentName={props.interview.student} selectedInterviewerId={props.interview.interviewer.id} interviewers={props.interviewers} />}
 
       {mode === DELETE && <Status message = "Deleting"/>}
 
-      {mode === CONFIRM && <Confirm onCancel={() => back()} onConfirm = {() => deleting()} message="Delete this appointment?"/> }
+      {mode === CONFIRM && <Confirm onCancel={() => back()} onConfirm = {() => deleting()} message="Are you sure you would like to delete?"/> }
 
     {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
     {mode === ERROR_DELETE && <Error message="Could not cancel appointment" onClose={() => back()} />}
 
-    {mode === ERROR_SAVE && <Error message="Could not cancel appointment" onClose={() => back()}/>}
+    {mode === ERROR_SAVE && <Error message="Could not book appointment" onClose={() => back()}/>}
 
     {mode === SAVING && <Status message = "Saving" />}
    
@@ -85,33 +86,10 @@ export default function Appointment(props){
     />
  
   )}
+  </article>
    </>
 )
 
-
-
-
-
-
-//   if(props.interview){
-
-// return ( 
-//   <>
-//    <Header time={props.time}/>
-//   <Show name={props.interview.student} interviewer={props.interview.interviewer}/>
-
-// </>
-// )
-//   }
-// else {
-//   return (
-//     <>
-// <Header time={props.time}/>,
-// <Empty />
-// </>
-//   )
-  
-// }
   }
 
 
