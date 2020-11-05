@@ -1,4 +1,5 @@
 import React from "react";
+// show component that contains the student name, interviewer, edit and delete features. this will be seen if the user is added or present in database.
 
 export default function Show(props) {
  console.log("props on show function:", props);

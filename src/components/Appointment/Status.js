@@ -1,7 +1,8 @@
 import React from "react";
+//contains message either saving or deleting that is passed to it as props.
+
 export default function Status(props) {
 
- 
    return (
     <main className="appointment__card appointment__card--status">
     <img

@@ -14,7 +14,7 @@ export default function Show(props) {
       alt="Close"
       onClick={props.onClose}
     />
-  </main>
+    </main>
   
   
    );

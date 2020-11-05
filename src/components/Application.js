@@ -8,6 +8,7 @@ import {getInterviewersForDay} from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData"
 export default function Application(props) {
   const {
+    //retrieving data from useApplicationData.js file to use here
     state,
     setDay,
     bookInterview,
@@ -20,6 +21,7 @@ export default function Application(props) {
     appointment => {
       return (
         <Appointment
+        //passing props to appointment component
           key={appointment.id}
           {...appointment}
           interview={getInterview(state, appointment.interview)}

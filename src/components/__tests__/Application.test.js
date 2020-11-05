@@ -4,9 +4,9 @@ import { render, cleanup, waitForElement, fireEvent, getByText, prettyDOM, getAl
 
 import Application from "components/Application";
 
-afterEach(cleanup);
+  afterEach(cleanup);
 
-it("changes the schedule when a new day is selected", async () => {
+  it("changes the schedule when a new day is selected", async () => {
   const { getByText } = render(<Application />);
 
   await waitForElement(() => getByText("Monday"));
@@ -16,7 +16,7 @@ it("changes the schedule when a new day is selected", async () => {
   expect(getByText("Leopold Silvers")).toBeInTheDocument();
 });
 
-it("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
+  it("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
   const { container, debug } = render(<Application />);
 
   await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -45,7 +45,7 @@ it("loads data, books an interview and reduces the spots remaining for Monday by
 });
 
 
-it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
+  it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
   // 1. Render the Application.
   const { container } = render(<Application />);
 
@@ -82,7 +82,7 @@ it("loads data, cancels an interview and increases the spots remaining for Monda
 });
 
 
- it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
+   it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
   const { container, debug } = render(<Application />);
   await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -102,13 +102,6 @@ it("loads data, cancels an interview and increases the spots remaining for Monda
   );
 
   expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
-
-
-  // We want to start by finding an existing interview.
-  // With the existing interview we want to find the edit button.
-  // We change the name and save the interview.
-  // We don't want the spots to change for "Monday", since this is an edit.
-  // Read the errors because sometimes they say that await cannot be outside of an async function.
 
 });
 
